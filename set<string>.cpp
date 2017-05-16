@@ -1,26 +1,38 @@
 #include <iostream>
 #include <set>
 #include <string>
+#include <string.h>
 
+#define LEN 1024
 using namespace std;
 typedef set<string> setOnlineClinet;
 setOnlineClinet cli;
 
+void drawLine(){
+    cout<<"______"<<endl;
+}
+
 int main() {
-    cout << "Hello, World!" << endl;
+    char msg[LEN];
+    bzero(msg,LEN);
+    sprintf(msg,"%s","Omega");
+    printf("%s\n",msg);
+
     cli.insert("Alpha");
     cli.insert("Beta");
+    cli.insert(msg);
 
+    drawLine();
     auto k = cli.begin();
     while(k!=cli.end()){
-        cout<<*k<<endl;
-        printf("%s\n",(*k).c_str());
-        k++;
+        printf("%s\n",(*(k++)).c_str());
     }
-#if 0
+
+    drawLine();
+#if 1
     for(auto k = cli.begin();k!=cli.end();k++){
-        printf("%c\n",(*k).c_str());
-        printf("%s\n",*k);
+        printf("%s\n",(*k).c_str());
+//        printf("%s\n",*k);
     }
 #endif
     return 0;
